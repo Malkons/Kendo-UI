@@ -30,6 +30,7 @@ $(document).ready(function () {
             dir: "asc"
         }
     });
+
     //Kendo Chart
     $("#ordersChart").kendoChart({
         dataSource: { data: [], sort: { field: "mpg", dir: "asc" } }, title: { text: "mpg vs horsepower", font: "20px sans-serif", color: "#ff6800" }, seriesDefaults: { type: "column" }, series: [{ field: "mpg", categoryField: "horsepower" }], seriesClick: function (e) {
@@ -57,12 +58,14 @@ $(document).ready(function () {
             value: horsepower
         });
     }
+
     //Kendo Button
     $("#clearGridFilter").kendoButton({
         click: function (e) {
             $("#ordersGrid").data("kendoGrid").dataSource.filter({});
         }
     });
+    
     //Kendo Grid
     $("#ordersGrid").kendoGrid({
         dataSource: gridDataSource,

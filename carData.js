@@ -291,7 +291,7 @@ var carData = [
         "mpg": 25,
         "cylinders": 4,
         "displacement": 98,
-        "horsepower": "",
+        "horsepower": 88,
         "weight": 2046,
         "acceleration": 19,
         "modelyear": 71
@@ -1137,7 +1137,7 @@ var carData = [
         "mpg": 21,
         "cylinders": 6,
         "displacement": 200,
-        "horsepower": "",
+        "horsepower": 85,
         "weight": 2875,
         "acceleration": 17,
         "modelyear": 74
