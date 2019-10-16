@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Kendo Scatter</title>
+    <title>Getting Started with Kendo UI for jQuery</title>
 
     <link href="https://kendo.cdn.telerik.com/2019.3.917/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="https://kendo.cdn.telerik.com/2019.3.917/styles/kendo.default.min.css" rel="stylesheet" />
@@ -13,12 +13,15 @@
 
 <body>
 
-    <div id="grid"></div>
-    <br>
-    <div id="chart"></div>
-    
+    <div id="ordersChart"></div>
+    <p>
+        <button id="clearGridFilter">Show all cars</button>
+    </p>
+    <button class="model-year margin btn btn-success" onclick="drawChart ()">Draw Graph</button>
+    <button value="cylinders" class="button btn btn-info" onclick="verticalAxis(value)">cylinders</button>
+    <div id="ordersGrid"></div>
     <script src="carData.js"></script>
-    <script type="text/javascript" src="js1.js"></script>
+    <script type="text/javascript" src="js.js"></script>
 </body>
 
 </html>

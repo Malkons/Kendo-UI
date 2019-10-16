@@ -1,52 +1,4 @@
-/*
-var carData = [
-    {
-        "mpg": 18,
-        "cylinders": 8,
-        "displacement": 307,
-        "horsepower": 130,
-        "weight": 3504,
-        "acceleration": 12,
-        "modelyear": 70
-    },
-    {
-        "mpg": 15,
-        "cylinders": 8,
-        "displacement": 350,
-        "horsepower": 165,
-        "weight": 3693,
-        "acceleration": 11.5,
-        "modelyear": 70
-    },
-    {
-        "mpg": 18,
-        "cylinders": 8,
-        "displacement": 318,
-        "horsepower": 150,
-        "weight": 3436,
-        "acceleration": 11,
-        "modelyear": 70
-    },
-    {
-        "mpg": 16,
-        "cylinders": 8,
-        "displacement": 304,
-        "horsepower": 150,
-        "weight": 3433,
-        "acceleration": 12,
-        "modelyear": 70
-    },
-    {
-        "mpg": 17,
-        "cylinders": 8,
-        "displacement": 302,
-        "horsepower": 140,
-        "weight": 3449,
-        "acceleration": 10.5,
-        "modelyear": 70
-    }
-]
-*/
+
 var myDataSource = new kendo.data.DataSource({
     data: carData,
     pageSize: 10,
@@ -65,9 +17,74 @@ var myDataSource = new kendo.data.DataSource({
     }
 });
 
+function verticalAxis(value) {
+    verticalArr = [];
+    verticalArr.push(value);
+    console.log("vertical Axis: " + verticalArr);
+    $("#vertical").html("Dependent Variable (Vertical) set to: " + "<strong>" + verticalArr + "</strong>");
+  };
 
+  function horizontalAxis(value) {
+    horizontalArr = [];
+    horizontalArr.push(value);
+    console.log("horizontal Axis: " + horizontalArr);
+    $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
+  };
+
+function drawChart () {
+$("#chart").kendoChart({
+    dataSource: myDataSource,
+    series: [
+        {
+            field: verticalArr[0],
+            categoryField: horizontalArr[0],
+        },
+    ],
+    seriesClick: function (e) {
+        filterGrid(e.category);
+        console.log(e.category);
+    },
+    axisLabelClick: function (e) {
+        filterGrid(e.value);
+        console.log(e.value);
+    },
+});
+};
+function filterGrid(horse) {
+    $("#grid").data("kendoGrid").dataSource.filter({
+        field: horizontalArr[0],
+        operator: "eq",
+        value: horse
+    });
+};
+//drawChart();
+
+
+$("#clearGridFilter").kendoButton({
+    click: function (e) {
+        $("#grid").data("kendoGrid").dataSource.filter({});
+    }
+});
+
+$("#drawChart").kendoButton({
+    click: function () {
+      drawChart();
+    }
+});
+
+$("#buttonGroupVertical").kendoButtonGroup();
+
+$("#buttonGroupHorizontal").kendoButtonGroup();
+
+$("#buttonGroupControl").kendoButtonGroup();
 
 $("#grid").kendoGrid({
+    dataSource: myDataSource,
+
+    filterable: true,
+    sortable: true,
+    groupable: true,
+    pageable: true,
     columns: [
         {
             title: "MPG",
@@ -97,29 +114,5 @@ $("#grid").kendoGrid({
             title: "model-year",
             field: "modelyear"
         }],
-
-    dataSource: myDataSource,
-    filterable: true,
-    sortable: true,
-    groupable: true,
-    pageable: true,
 });
 
-$("#chart").kendoChart({
-    dataSource: myDataSource,
-    seriesDefaults: { type: "line" },
-    series: [
-        {
-            name: "MPG",
-            field: "mpg", 
-        },
-    ],
-   
-    catagoryAxis: {
-        field: "mpg"
-    },
-
-    valueAxis: {
-        field: "horsepower"
-    }
-});
