@@ -19,15 +19,12 @@
     <div id="vertical" class="card-text margin"></div>
     <div id="horizontal" class="card-text margin"></div>
     <br>
+
     <div id="buttonGroupControl">
-        <p>
-            <button id="clearGridFilter">Show all cars</button>
-        </p>
-        <p>
-            <button id="drawChart" class="button btn btn-info" onclick="drawChart()">Draw Chart</button>
-        </p>
+        <button id="clearGridFilter">Show all cars</button>
+        <button id="drawChart" class="button btn btn-info" onclick="drawChart()">Draw Chart</button>
     </div>
-    
+
     <h3>Vertical Axis</h3>
     <div id="buttonGroupVertical">
         <button value="mpg" class="button btn btn-info" onclick="verticalAxis(value)">MPG</button>
@@ -36,7 +33,7 @@
         <button value="horsepower" class="button btn btn-info" onclick="verticalAxis(value)">Horsepower</button>
         <button value="weight" class="button btn btn-info" onclick="verticalAxis(value)">Weight</button>
         <button value="acceleration" class="button btn btn-info" onclick="verticalAxis(value)">Acceleration</button>
-        <button value="model-year" class="button btn btn-info" onclick="verticalAxis(value)">Model-year</button>
+        <button value="modelyear" class="button btn btn-info" onclick="verticalAxis(value)">Model-year</button>
     </div>
 
     <h3>Horizontal Axis</h3>
@@ -49,7 +46,7 @@
         <button value="weight" class="button btn btn-warning" onclick="horizontalAxis(value)">Weight</button>
         <button value="acceleration" class="button btn btn-warning"
             onclick="horizontalAxis(value)">Acceleration</button>
-        <button value="model-year" class="button btn btn-warning" onclick="horizontalAxis(value)">Model-year</button>
+        <button value="modelyear" class="button btn btn-warning" onclick="horizontalAxis(value)">Model-year</button>
     </div>
     <br><br>
     <div id="grid"></div>

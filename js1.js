@@ -1,7 +1,6 @@
 
 var myDataSource = new kendo.data.DataSource({
     data: carData,
-    pageSize: 10,
     schema: {
         model: {
             field: {
@@ -22,33 +21,40 @@ function verticalAxis(value) {
     verticalArr.push(value);
     console.log("vertical Axis: " + verticalArr);
     $("#vertical").html("Dependent Variable (Vertical) set to: " + "<strong>" + verticalArr + "</strong>");
-  };
+};
 
-  function horizontalAxis(value) {
+function horizontalAxis(value) {
     horizontalArr = [];
     horizontalArr.push(value);
     console.log("horizontal Axis: " + horizontalArr);
     $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
-  };
+};
 
-function drawChart () {
-$("#chart").kendoChart({
-    dataSource: myDataSource,
-    series: [
-        {
-            field: verticalArr[0],
-            categoryField: horizontalArr[0],
+function drawChart() {
+    $("#chart").kendoChart({
+        dataSource: myDataSource,
+        seriesDefaults: {
+            type: "scatter"
         },
-    ],
-    seriesClick: function (e) {
-        filterGrid(e.category);
-        console.log(e.category);
-    },
-    axisLabelClick: function (e) {
-        filterGrid(e.value);
-        console.log(e.value);
-    },
-});
+        series: [{
+            xField: horizontalArr[0],
+            yField: verticalArr[0]
+        }],
+        xAxis: {
+            labels: {
+                rotation: -90,
+            },
+
+        },
+        seriesClick: function (e) {
+            filterGrid(e.category);
+            console.log(e.category);
+        },
+        axisLabelClick: function (e) {
+            filterGrid(e.value);
+            console.log(e.value);
+        },
+    });
 };
 function filterGrid(horse) {
     $("#grid").data("kendoGrid").dataSource.filter({
@@ -68,7 +74,7 @@ $("#clearGridFilter").kendoButton({
 
 $("#drawChart").kendoButton({
     click: function () {
-      drawChart();
+        drawChart();
     }
 });
 
@@ -80,11 +86,11 @@ $("#buttonGroupControl").kendoButtonGroup();
 
 $("#grid").kendoGrid({
     dataSource: myDataSource,
-
     filterable: true,
     sortable: true,
     groupable: true,
-    pageable: true,
+    height: 400,
+    scrollable: true,
     columns: [
         {
             title: "MPG",
