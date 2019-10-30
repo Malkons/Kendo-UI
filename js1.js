@@ -36,23 +36,38 @@ function drawChart() {
         seriesDefaults: {
             type: "scatter"
         },
+        title: {
+            text: horizontalArr[0] + " vs " + verticalArr[0]
+        },
         series: [{
             xField: horizontalArr[0],
-            yField: verticalArr[0]
+            yField: verticalArr[0],
+            colorField: "blue"
         }],
+        yAxis: {
+            title: {
+                text: verticalArr[0]
+            },
+        },
         xAxis: {
             labels: {
                 rotation: -90,
             },
-
+            title: {
+                text: horizontalArr[0]
+            },
         },
         seriesClick: function (e) {
-            filterGrid(e.category);
-            console.log(e.category);
+            filterGrid(e.value.x);
+            console.log(e.value.x);
         },
         axisLabelClick: function (e) {
             filterGrid(e.value);
             console.log(e.value);
+        },
+        tooltip: {
+            visible: true,
+            template: "#= series.xField #: #= value.x #, #= series.yField #: #=value.y #"
         },
     });
 };
