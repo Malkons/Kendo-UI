@@ -69,6 +69,8 @@ function drawChart() {
             visible: true,
             template: "#= series.xField #: #= value.x #, #= series.yField #: #=value.y #"
         },
+        zoomable: true,
+        pannable: true,
     });
 };
 function filterGrid(horse) {
