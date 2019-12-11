@@ -38,7 +38,6 @@ function colorScale(value) {
     colorScaleArr.push(value);
     console.log("Color Scale: " + colorScaleArr);
     $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
-    colorArrary(colorScaleArr[0]);
 };
 
 function drawChart() {
@@ -148,6 +147,7 @@ $("#grid").kendoGrid({
     groupable: true,
     group: function (e) {
         populateArray(e.groups[0].field);
+        colorScale(e.groups[0].field);
     },
     height: 400,
     scrollable: true,
