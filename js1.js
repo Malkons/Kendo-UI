@@ -1,4 +1,7 @@
-
+var keyArr = [];
+var legendColorArr = [];
+var legendArray = [];
+var colorScaleArr = [];
 var myDataSource = new kendo.data.DataSource({
     data: carData,
     schema: {
@@ -30,9 +33,21 @@ function horizontalAxis(value) {
     $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
 };
 
+function colorScale(value) {
+    colorScaleArr = [];
+    colorScaleArr.push(value);
+    console.log("Color Scale: " + colorScaleArr);
+    $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
+    colorArrary(colorScaleArr[0]);
+};
+
 function drawChart() {
     $("#chart").kendoChart({
         dataSource: myDataSource,
+        seriesColors: legendColorArr,
+        legend: {
+            visible: false,
+        },
         seriesDefaults: {
             type: "scatter"
         },
@@ -42,8 +57,10 @@ function drawChart() {
         series: [{
             xField: horizontalArr[0],
             yField: verticalArr[0],
-            colorField: "blue"
         }],
+        color: function (point) {
+            console.log(point.value);
+        },
         yAxis: {
             title: {
                 text: verticalArr[0]
@@ -59,7 +76,7 @@ function drawChart() {
         },
         seriesClick: function (e) {
             filterGrid(e.value.x);
-            console.log(e.value.x);
+            console.log(e.dataItem);
         },
         axisLabelClick: function (e) {
             filterGrid(e.value);
@@ -72,6 +89,7 @@ function drawChart() {
         zoomable: true,
         pannable: true,
     });
+
 };
 function filterGrid(horse) {
     $("#grid").data("kendoGrid").dataSource.filter({
@@ -95,17 +113,42 @@ $("#drawChart").kendoButton({
     }
 });
 
+$("#showLegend").kendoButton({
+    click: function () {
+        var chart = $("#chart").data("kendoChart");
+        chart.options.legend.visible = true;
+        chart.refresh();
+    }
+});
+
+$("#hideLegend").kendoButton({
+    click: function () {
+        var chart = $("#chart").data("kendoChart");
+        chart.options.legend.visible = false;
+        chart.refresh();
+    }
+});
+
+
+$("#buttonGroupControl").kendoButtonGroup();
+
+$("#buttonGroupControlLegend").kendoButtonGroup();
+
 $("#buttonGroupVertical").kendoButtonGroup();
 
 $("#buttonGroupHorizontal").kendoButtonGroup();
 
-$("#buttonGroupControl").kendoButtonGroup();
+$("#buttonGroupColorScale").kendoButtonGroup();
+
 
 $("#grid").kendoGrid({
     dataSource: myDataSource,
     filterable: true,
     sortable: true,
     groupable: true,
+    group: function (e) {
+        populateArray(e.groups[0].field);
+    },
     height: 400,
     scrollable: true,
     columns: [
@@ -137,5 +180,5 @@ $("#grid").kendoGrid({
             title: "model-year",
             field: "modelyear"
         }],
-});
 
+});
