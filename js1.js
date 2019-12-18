@@ -24,6 +24,7 @@ function verticalAxis(value) {
     verticalArr.push(value);
     console.log("vertical Axis: " + verticalArr);
     $("#vertical").html("Dependent Variable (Vertical) set to: " + "<strong>" + verticalArr + "</strong>");
+    drawChart();
 };
 
 function horizontalAxis(value) {
@@ -31,6 +32,7 @@ function horizontalAxis(value) {
     horizontalArr.push(value);
     console.log("horizontal Axis: " + horizontalArr);
     $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
+    drawChart();
 };
 
 function colorScale(value) {
@@ -139,6 +141,16 @@ $("#buttonGroupHorizontal").kendoButtonGroup();
 
 $("#buttonGroupColorScale").kendoButtonGroup();
 
+function onChange(e) {
+    var rows = e.sender.select();
+    rows.each(function(e) {
+        var grid = $("#grid").data("kendoGrid");
+        var dataItem = grid.dataItem(this);
+
+        console.log(dataItem);
+    })
+};
+
 
 $("#grid").kendoGrid({
     dataSource: myDataSource,
@@ -180,5 +192,6 @@ $("#grid").kendoGrid({
             title: "model-year",
             field: "modelyear"
         }],
-
+    detailTemplate: "<div>MPG: #: mpg #</div><div>Cylinders: #: cylinders #</div><div>Displacement: #: displacement #</div><div>Horsepower: #: horsepower #</div><div>Weight: #: weight #</div><div>Acceleration: #: acceleration #</div><div>Model-year: #: modelyear #</div>",
+    selectable: "multiple, row",
 });

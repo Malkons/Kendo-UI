@@ -73,10 +73,9 @@ function createColorArray(length) {
   var tmp = generateColor('#000000', '#ff0ff0', length);
 
   for (cor in tmp) {
-    //$('#result_show').append("<div style='padding:8px;color:#FFF;background-color:#"+tmp[cor]+"'>COLOR "+cor+"° - #"+tmp[cor]+"</div>")
     legendColorArr.push("#" + tmp[cor]);
   }
+  
   console.log(legendColorArr);
   drawChart();
- 
 };
