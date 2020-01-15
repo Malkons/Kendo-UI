@@ -20,40 +20,19 @@
     <div id="horizontal" class="card-text margin"></div>
     <div id="colorScale" class="card-text margin"></div>
     <br>
-
-    <div id="buttonGroupControl">
-        <button id="clearGridFilter">Show all cars</button>
     </div>
     <br><br>
     <div id="buttonGroupControlLegend">
+        <button id="clearGridFilter">Show all cars</button>
         <button id="showLegend">Show Legend</button>
         <button id="hideLegend" class="button btn btn-info">Hide Legend</button>
     </div>
-
-
     <h3>Vertical Axis</h3>
-    <div id="buttonGroupVertical">
-        <button value="mpg" class="button btn btn-info" onclick="verticalAxis(value)">MPG</button>
-        <button value="cylinders" class="button btn btn-info" onclick="verticalAxis(value)">Cylinders</button>
-        <button value="displacement" class="button btn btn-info" onclick="verticalAxis(value)">Displacement</button>
-        <button value="horsepower" class="button btn btn-info" onclick="verticalAxis(value)">Horsepower</button>
-        <button value="weight" class="button btn btn-info" onclick="verticalAxis(value)">Weight</button>
-        <button value="acceleration" class="button btn btn-info" onclick="verticalAxis(value)">Acceleration</button>
-        <button value="modelyear" class="button btn btn-info" onclick="verticalAxis(value)">Model-year</button>
-    </div>
-
+    <input id="dropdownlistVertical" />
     <h3>Horizontal Axis</h3>
-    <div id="buttonGroupHorizontal">
-        <button value="mpg" class="button btn btn-warning" onclick="horizontalAxis(value)">MPG</button>
-        <button value="cylinders" class="button btn btn-warning" onclick="horizontalAxis(value)">Cylinders</button>
-        <button value="displacement" class="button btn btn-warning"
-            onclick="horizontalAxis(value)">Displacement</button>
-        <button value="horsepower" class="button btn btn-warning" onclick="horizontalAxis(value)">Horsepower</button>
-        <button value="weight" class="button btn btn-warning" onclick="horizontalAxis(value)">Weight</button>
-        <button value="acceleration" class="button btn btn-warning"
-            onclick="horizontalAxis(value)">Acceleration</button>
-        <button value="modelyear" class="button btn btn-warning" onclick="horizontalAxis(value)">Model-year</button>
-    </div>
+    <input id="dropdownlistHorizontal" />
+    <!--<h3>Color Scale</h3>
+    <input id="dropdownlistColor" />-->
     <br><br>
     <div id="grid"></div>
 

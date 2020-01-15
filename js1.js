@@ -1,3 +1,5 @@
+var horizontalArr = [];
+var verticalArr = [];
 var keyArr = [];
 var legendColorArr = [];
 var legendArray = [];
@@ -19,20 +21,12 @@ var myDataSource = new kendo.data.DataSource({
     }
 });
 
-function verticalAxis(value) {
-    verticalArr = [];
-    verticalArr.push(value);
-    console.log("vertical Axis: " + verticalArr);
-    $("#vertical").html("Dependent Variable (Vertical) set to: " + "<strong>" + verticalArr + "</strong>");
-    drawChart();
-};
-
-function horizontalAxis(value) {
-    horizontalArr = [];
-    horizontalArr.push(value);
-    console.log("horizontal Axis: " + horizontalArr);
-    $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
-    drawChart();
+function drawchartChecker() {
+    if (horizontalArr.length === 1 || verticalArr.length === 1) {
+        drawChart ();
+    } else {
+        alert ("Hello");
+    }
 };
 
 function colorScale(value) {
@@ -41,6 +35,14 @@ function colorScale(value) {
     console.log("Color Scale: " + colorScaleArr);
     $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
 };
+
+$(document).ready(function () {
+    $("tr").click(function () {
+        console.log("Hello World");
+        alert("hello");
+        window.open("http://www.google.com");
+    });
+});
 
 function drawChart() {
     $("#chart").kendoChart({
@@ -92,25 +94,18 @@ function drawChart() {
     });
 
 };
-function filterGrid(horse) {
+
+function filterGrid(point) {
     $("#grid").data("kendoGrid").dataSource.filter({
         field: horizontalArr[0],
         operator: "eq",
-        value: horse
+        value: point
     });
 };
-//drawChart();
-
 
 $("#clearGridFilter").kendoButton({
     click: function (e) {
         $("#grid").data("kendoGrid").dataSource.filter({});
-    }
-});
-
-$("#drawChart").kendoButton({
-    click: function () {
-        drawChart();
     }
 });
 
@@ -131,19 +126,53 @@ $("#hideLegend").kendoButton({
 });
 
 
-$("#buttonGroupControl").kendoButtonGroup();
+$("#dropdownlistVertical").kendoDropDownList({
+    dataSource: ["mpg", "cylinders", "displacement", "horsepower", "weight", "acceleration", "modelyear"],
+    select: function (e) {
+        var item = e.item;
+        var text = item.text();
+        verticalArr = [];
+        verticalArr.push(text);
+        console.log("vertical Axis: " + verticalArr);
+        $("#vertical").html("Dependent Variable (Vertical) set to: " + "<strong>" + verticalArr + "</strong>");
+        drawchartChecker() 
+    }
+});
 
+$("#dropdownlistHorizontal").kendoDropDownList({
+    dataSource: ["mpg", "cylinders", "displacement", "horsepower", "weight", "acceleration", "modelyear"],
+    select: function (e) {
+        var item = e.item;
+        var text = item.text();
+        horizontalArr = [];
+        horizontalArr.push(text);
+        console.log("horizontal Axis: " + horizontalArr);
+        $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
+        drawchartChecker() 
+    }
+});
+/*
+$("#dropdownlistColor").kendoDropDownList({
+    dataSource: ["mpg", "cylinders", "displacement", "horsepower", "weight", "acceleration", "modelyear"],
+    select: function (e) {
+        var item = e.item;
+        var text = item.text();
+        colorScaleArr = [];
+        colorScaleArr.push(text);
+        console.log("Color Scale: " + colorScaleArr);
+        $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
+
+    populateArray(text);
+}
+  });
+*/
 $("#buttonGroupControlLegend").kendoButtonGroup();
-
-$("#buttonGroupVertical").kendoButtonGroup();
-
-$("#buttonGroupHorizontal").kendoButtonGroup();
 
 $("#buttonGroupColorScale").kendoButtonGroup();
 
 function onChange(e) {
     var rows = e.sender.select();
-    rows.each(function(e) {
+    rows.each(function (e) {
         var grid = $("#grid").data("kendoGrid");
         var dataItem = grid.dataItem(this);
 
