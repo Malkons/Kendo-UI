@@ -23,9 +23,9 @@ var myDataSource = new kendo.data.DataSource({
 
 function drawchartChecker() {
     if (horizontalArr.length === 1 || verticalArr.length === 1) {
-        drawChart ();
+        drawChart();
     } else {
-        alert ("Hello");
+        alert("Choose another variable");
     }
 };
 
@@ -37,9 +37,9 @@ function colorScale(value) {
 };
 
 $(document).ready(function () {
-    $("tr").click(function () {
+    $(".table-cell, .k-detail-cell").click(function () {
         console.log("Hello World");
-        alert("hello");
+        alert("We are now opening a new Window to www.google.com");
         window.open("http://www.google.com");
     });
 });
@@ -50,6 +50,7 @@ function drawChart() {
         seriesColors: legendColorArr,
         legend: {
             visible: false,
+            position: "bottom",
         },
         seriesDefaults: {
             type: "scatter"
@@ -135,7 +136,7 @@ $("#dropdownlistVertical").kendoDropDownList({
         verticalArr.push(text);
         console.log("vertical Axis: " + verticalArr);
         $("#vertical").html("Dependent Variable (Vertical) set to: " + "<strong>" + verticalArr + "</strong>");
-        drawchartChecker() 
+        drawchartChecker()
     }
 });
 
@@ -148,7 +149,7 @@ $("#dropdownlistHorizontal").kendoDropDownList({
         horizontalArr.push(text);
         console.log("horizontal Axis: " + horizontalArr);
         $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
-        drawchartChecker() 
+        drawchartChecker()
     }
 });
 /*
@@ -185,41 +186,69 @@ $("#grid").kendoGrid({
     dataSource: myDataSource,
     filterable: true,
     sortable: true,
+    reorderable: true,
+    mobile: "phone",
+    toolbar:["search"],
+    search: {
+        fields: ["mpg", "cylinders", "displacement","horsepower", "weight", "acceleration", "modelyear"],
+    },
     groupable: true,
     group: function (e) {
         populateArray(e.groups[0].field);
         colorScale(e.groups[0].field);
+        console.log(e.groups[0].dir);
     },
     height: 400,
     scrollable: true,
     columns: [
         {
             title: "MPG",
-            field: "mpg"
+            field: "mpg",
+            attributes: {
+                "class": "table-cell",
+            },
         },
         {
             title: "Cylinders",
-            field: "cylinders"
+            field: "cylinders",
+            attributes: {
+                "class": "table-cell",
+            },
         },
         {
             title: "displacement",
-            field: "displacement"
+            field: "displacement",
+            attributes: {
+                "class": "table-cell",
+            },
         },
         {
             title: "horsepower",
-            field: "horsepower"
+            field: "horsepower",
+            attributes: {
+                "class": "table-cell",
+            },
         },
         {
             title: "weight",
-            field: "weight"
+            field: "weight",
+            attributes: {
+                "class": "table-cell",
+            },
         },
         {
             title: "acceleration",
-            field: "acceleration"
+            field: "acceleration",
+            attributes: {
+                "class": "table-cell",
+            },
         },
         {
             title: "model-year",
-            field: "modelyear"
+            field: "modelyear",
+            attributes: {
+                "class": "table-cell",
+            },
         }],
     detailTemplate: "<div>MPG: #: mpg #</div><div>Cylinders: #: cylinders #</div><div>Displacement: #: displacement #</div><div>Horsepower: #: horsepower #</div><div>Weight: #: weight #</div><div>Acceleration: #: acceleration #</div><div>Model-year: #: modelyear #</div>",
     selectable: "multiple, row",
