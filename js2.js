@@ -70,7 +70,7 @@ function populateArray(key) {
 };
 
 function createColorArray(length) {
-  var tmp = generateColor('#000000', '#ff0ff0', length);
+  var tmp = generateColor('#484848', '#FF8C00', length);
 
   for (cor in tmp) {
     legendColorArr.push("#" + tmp[cor]);
