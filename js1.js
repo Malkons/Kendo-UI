@@ -35,9 +35,18 @@ function colorScale(value) {
     console.log("Color Scale: " + colorScaleArr);
     $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
 };
+/*
+$(document).ready(function () {
+    $(".table-cell").click(function () {
+        console.log("Hello World");
+        alert("We are now opening a new Window to www.google.com");
+        window.open("http://www.google.com");
+    });
+});
+*/
 
 $(document).ready(function () {
-    $(".table-cell, .k-detail-cell").click(function () {
+    $("#grid").on("click", function () {
         console.log("Hello World");
         alert("We are now opening a new Window to www.google.com");
         window.open("http://www.google.com");
@@ -188,15 +197,14 @@ $("#grid").kendoGrid({
     sortable: true,
     reorderable: true,
     mobile: "phone",
-    toolbar:["search"],
+    toolbar: ["search"],
     search: {
-        fields: ["mpg", "cylinders", "displacement","horsepower", "weight", "acceleration", "modelyear"],
+        fields: ["mpg", "cylinders", "displacement", "horsepower", "weight", "acceleration", "modelyear"],
     },
     groupable: true,
     group: function (e) {
         populateArray(e.groups[0].field);
         colorScale(e.groups[0].field);
-        console.log(e.groups[0].dir);
     },
     height: 400,
     scrollable: true,
