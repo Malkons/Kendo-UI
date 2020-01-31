@@ -46,7 +46,7 @@ $(document).ready(function () {
 */
 
 $(document).ready(function () {
-    $("#grid").on("click", function () {
+    $("#grid").on("click", ".table-cell",function () {
         console.log("Hello World");
         alert("We are now opening a new Window to www.google.com");
         window.open("http://www.google.com");
