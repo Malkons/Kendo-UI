@@ -46,7 +46,7 @@ $(document).ready(function () {
 */
 
 $(document).ready(function () {
-    $("#grid").on("click", ".table-cell",function () {
+    $("#grid").on("click", ".table-cell", function () {
         console.log("Hello World");
         alert("We are now opening a new Window to www.google.com");
         window.open("http://www.google.com");
@@ -161,7 +161,7 @@ $("#dropdownlistHorizontal").kendoDropDownList({
         drawchartChecker()
     }
 });
-/*
+
 $("#dropdownlistColor").kendoDropDownList({
     dataSource: ["mpg", "cylinders", "displacement", "horsepower", "weight", "acceleration", "modelyear"],
     select: function (e) {
@@ -171,11 +171,11 @@ $("#dropdownlistColor").kendoDropDownList({
         colorScaleArr.push(text);
         console.log("Color Scale: " + colorScaleArr);
         $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
+        $("#chart").data("kendoChart").dataSource.group({ field: text });
+        populateArray(text);
+    }
+});
 
-    populateArray(text);
-}
-  });
-*/
 $("#buttonGroupControlLegend").kendoButtonGroup();
 
 $("#buttonGroupColorScale").kendoButtonGroup();
