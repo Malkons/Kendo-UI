@@ -59,7 +59,7 @@ function drawChart() {
         seriesColors: legendColorArr,
         legend: {
             visible: false,
-            position: "bottom",
+            position: "right",
         },
         seriesDefaults: {
             type: "scatter"
@@ -89,7 +89,9 @@ function drawChart() {
         },
         seriesClick: function (e) {
             filterGrid(e.value.x);
+            window.open("http://www.google.com");
             console.log(e.dataItem);
+
         },
         axisLabelClick: function (e) {
             filterGrid(e.value);
@@ -135,6 +137,12 @@ $("#hideLegend").kendoButton({
     }
 });
 
+$("#ungroup").kendoButton({
+    click: function () {
+        var grid = $('#grid').data('kendoGrid');
+        grid.dataSource.group([]);
+    }
+});
 
 $("#dropdownlistVertical").kendoDropDownList({
     dataSource: ["mpg", "cylinders", "displacement", "horsepower", "weight", "acceleration", "modelyear"],
