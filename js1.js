@@ -29,30 +29,15 @@ function drawchartChecker() {
     }
 };
 
-function colorScale(value) {
-    colorScaleArr = [];
-    colorScaleArr.push(value);
-    console.log("Color Scale: " + colorScaleArr);
-    $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
-};
-/*
-$(document).ready(function () {
-    $(".table-cell").click(function () {
-        console.log("Hello World");
-        alert("We are now opening a new Window to www.google.com");
-        window.open("http://www.google.com");
-    });
-});
-*/
-
 $(document).ready(function () {
     $("#grid").on("click", ".table-cell", function () {
         console.log("Hello World");
         alert("We are now opening a new Window to www.google.com");
         window.open("http://www.google.com");
+
     });
 });
-
+////////////////////////////////////////////Chart//////////////////////////////////////////////////
 function drawChart() {
     $("#chart").kendoChart({
         dataSource: myDataSource,
@@ -106,7 +91,7 @@ function drawChart() {
     });
 
 };
-
+//////////////////////////////////Filters//////////////////////////////////////////////////
 function filterGrid(point) {
     $("#grid").data("kendoGrid").dataSource.filter({
         field: horizontalArr[0],
@@ -115,6 +100,7 @@ function filterGrid(point) {
     });
 };
 
+///////////////////////////////////////////Buttons//////////////////////////////////////////
 $("#clearGridFilter").kendoButton({
     click: function (e) {
         $("#grid").data("kendoGrid").dataSource.filter({});
@@ -144,6 +130,8 @@ $("#ungroup").kendoButton({
     }
 });
 
+
+//////////////////////////////////////////////////////Dropdowns///////////////////////////////////////////////
 $("#dropdownlistVertical").kendoDropDownList({
     dataSource: ["mpg", "cylinders", "displacement", "horsepower", "weight", "acceleration", "modelyear"],
     select: function (e) {
@@ -153,7 +141,7 @@ $("#dropdownlistVertical").kendoDropDownList({
         verticalArr.push(text);
         console.log("vertical Axis: " + verticalArr);
         $("#vertical").html("Dependent Variable (Vertical) set to: " + "<strong>" + verticalArr + "</strong>");
-        drawchartChecker()
+        drawchartChecker();
     }
 });
 
@@ -166,7 +154,7 @@ $("#dropdownlistHorizontal").kendoDropDownList({
         horizontalArr.push(text);
         console.log("horizontal Axis: " + horizontalArr);
         $("#horizontal").html("Independent Variable (Horizontal) set to: " + "<strong>" + horizontalArr + "</strong>");
-        drawchartChecker()
+        drawchartChecker();
     }
 });
 
@@ -181,24 +169,147 @@ $("#dropdownlistColor").kendoDropDownList({
         $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
         $("#chart").data("kendoChart").dataSource.group({ field: text });
         populateArray(text);
+        //colorScale(text);
+        drawChart();
+
     }
 });
 
+///////////////////////////////////////Button Control Groups//////////////////////////////////
 $("#buttonGroupControlLegend").kendoButtonGroup();
 
-$("#buttonGroupColorScale").kendoButtonGroup();
+////////////////////////////////////////////Range Sliders////////////////////////////////////////////
+$(document).ready(function () {
+    $("#rangeSliderModelYear").kendoRangeSlider({
+        min: 70,
+        max: 81,
+        orientation: "horizontal",
+        smallStep: 1,
+        largeStep: 10,
+        change: function (e) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.filter({
+                logic: 'and',
+                filters: [
+                    { field: 'modelyear', operator: 'gte', value: e.values[0] },
+                    { field: 'modelyear', operator: 'lte', value: e.values[1] }
+                ]
+            })
+        }
+    });
 
-function onChange(e) {
-    var rows = e.sender.select();
-    rows.each(function (e) {
-        var grid = $("#grid").data("kendoGrid");
-        var dataItem = grid.dataItem(this);
+    $("#rangeSliderAcceleration").kendoRangeSlider({
+        min: 8,
+        max: 24.8,
+        orientation: "horizontal",
+        smallStep: 1,
+        largeStep: 10,
+        change: function (e) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.filter({
+                logic: 'and',
+                filters: [
+                    { field: 'acceleration', operator: 'gte', value: e.values[0] },
+                    { field: 'acceleration', operator: 'lte', value: e.values[1] }
+                ]
+            })
+        }
+    });
 
-        console.log(dataItem);
-    })
-};
+    $("#rangeSliderWeight").kendoRangeSlider({
+        min: 1800,
+        max: 4360,
+        orientation: "horizontal",
+        smallStep: 1,
+        largeStep: 10,
+        change: function (e) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.filter({
+                logic: 'and',
+                filters: [
+                    { field: 'Weight', operator: 'gte', value: e.values[0] },
+                    { field: 'Weight', operator: 'lte', value: e.values[1] }
+                ]
+            })
+        }
+    });
+
+    $("#rangeSliderHorsepower").kendoRangeSlider({
+        min: 46,
+        max: 230,
+        orientation: "horizontal",
+        smallStep: 1,
+        largeStep: 10,
+        change: function (e) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.filter({
+                logic: 'and',
+                filters: [
+                    { field: 'horsepower', operator: 'gte', value: e.values[0] },
+                    { field: 'horsepower', operator: 'lte', value: e.values[1] }
+                ]
+            })
+        }
+    });
+
+    $("#rangeSliderDisplacement").kendoRangeSlider({
+        min: 68,
+        max: 455,
+        orientation: "horizontal",
+        smallStep: 1,
+        largeStep: 10,
+        change: function (e) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.filter({
+                logic: 'and',
+                filters: [
+                    { field: 'displacement', operator: 'gte', value: e.values[0] },
+                    { field: 'displacement', operator: 'lte', value: e.values[1] }
+                ]
+            })
+        }
+    });
+
+    $("#rangeSliderCylinders").kendoRangeSlider({
+        min: 3,
+        max: 8,
+        orientation: "horizontal",
+        smallStep: 1,
+        largeStep: 10,
+        change: function (e) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.filter({
+                logic: 'and',
+                filters: [
+                    { field: 'cylinders', operator: 'gte', value: e.values[0] },
+                    { field: 'cylinders', operator: 'lte', value: e.values[1] }
+                ]
+            })
+        }
+    });
+
+    $("#rangeSliderMpg").kendoRangeSlider({
+        min: 9,
+        max: 46.6,
+        orientation: "horizontal",
+        smallStep: 1,
+        largeStep: 10,
+        change: function (e) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.filter({
+                logic: 'and',
+                filters: [
+                    { field: 'mpg', operator: 'gte', value: e.values[0] },
+                    { field: 'mpg', operator: 'lte', value: e.values[1] }
+                ]
+            })
+        }
+    });
+});
 
 
+
+////////////////////////////////////////Grid////////////////////////////////////////
 $("#grid").kendoGrid({
     dataSource: myDataSource,
     filterable: true,
@@ -213,6 +324,7 @@ $("#grid").kendoGrid({
     group: function (e) {
         populateArray(e.groups[0].field);
         colorScale(e.groups[0].field);
+        console.log(legendColorArr);
     },
     height: 400,
     scrollable: true,
