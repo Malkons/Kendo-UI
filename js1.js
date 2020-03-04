@@ -220,8 +220,8 @@ $(document).ready(function () {
         min: 1800,
         max: 4360,
         orientation: "horizontal",
-        smallStep: 1,
-        largeStep: 10,
+        smallStep: 50,
+        largeStep: 500,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
             grid.dataSource.filter({
@@ -238,8 +238,8 @@ $(document).ready(function () {
         min: 46,
         max: 230,
         orientation: "horizontal",
-        smallStep: 1,
-        largeStep: 10,
+        smallStep: 10,
+        largeStep: 50,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
             grid.dataSource.filter({
@@ -256,8 +256,8 @@ $(document).ready(function () {
         min: 68,
         max: 455,
         orientation: "horizontal",
-        smallStep: 1,
-        largeStep: 10,
+        smallStep: 5,
+        largeStep: 100,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
             grid.dataSource.filter({
