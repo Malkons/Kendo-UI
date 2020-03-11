@@ -57,6 +57,7 @@ function generateColor(colorStart, colorEnd, colorCount) {
 }
 
 function populateArray(key) {
+  $("#legend").empty();
   legendArray = [];
   legendColorArr = [];
   for (var i = 0; i < carData.length; i++) {
@@ -64,18 +65,28 @@ function populateArray(key) {
       legendArray.push(carData[i][key])
     }
   };
-  legendArray.sort();
+  legendArray.sort(); 
+  
   console.log("Num of elements in array: " + legendArray.length + ", " + " Elements in array: " + legendArray);
+  $("#low").html("Low: " + Math.min.apply(Math, legendArray));
+  console.log("Low: " + Math.min.apply(Math, legendArray));
+  $("#high").html("High: " + Math.max.apply(Math, legendArray));
+  console.log("High: " + Math.max.apply(Math, legendArray));
+ 
+  var img = $("<img>");
+  img.attr("src", "images/GradiantKendo.png");
+  img.addClass("gradiant");
+  img.appendTo("#legend");
   createColorArray(legendArray.length);
 };
 
 function createColorArray(length) {
-  var tmp = generateColor('#654321', '#FFBF00', length);
+  var tmp = generateColor('#654321', '#fff700', length);
 
   for (cor in tmp) {
     legendColorArr.push("#" + tmp[cor]);
   }
-  
+
   console.log(legendColorArr);
   drawChart();
 };
