@@ -1,5 +1,22 @@
-.gradiant {
-  width: 33%;
-  height: 33%;
+.container {
+display: flex;
+width: 30%;
+align-items: flex-start;
 }
 
+.gradiant {
+  width: 30%;
+  transform: rotate(180deg);
+}
+
+.legend{
+
+}
+
+.low {
+
+}
+
+.high {
+
+}

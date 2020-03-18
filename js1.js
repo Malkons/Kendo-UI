@@ -192,7 +192,19 @@ $(document).ready(function () {
                 logic: 'and',
                 filters: [
                     { field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    { field: 'modelyear', operator: 'lte', value: e.values[1] }
+                    { field: 'modelyear', operator: 'lte', value: e.values[1] },
+                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
+                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
+                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
+                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
+                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
+                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
+                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
+                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
+                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
+                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
+                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
+                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
                 ]
             })
         }
@@ -209,8 +221,20 @@ $(document).ready(function () {
             grid.dataSource.filter({
                 logic: 'and',
                 filters: [
+                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
+                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
                     { field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    { field: 'acceleration', operator: 'lte', value: e.values[1] }
+                    { field: 'acceleration', operator: 'lte', value: e.values[1] },
+                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
+                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
+                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
+                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
+                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
+                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
+                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
+                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
+                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
+                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
                 ]
             })
         }
@@ -227,8 +251,20 @@ $(document).ready(function () {
             grid.dataSource.filter({
                 logic: 'and',
                 filters: [
+                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
+                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
+                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
+                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
                     { field: 'Weight', operator: 'gte', value: e.values[0] },
-                    { field: 'Weight', operator: 'lte', value: e.values[1] }
+                    { field: 'Weight', operator: 'lte', value: e.values[1] },
+                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
+                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
+                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
+                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
+                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
+                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
+                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
+                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
                 ]
             })
         }
@@ -245,8 +281,20 @@ $(document).ready(function () {
             grid.dataSource.filter({
                 logic: 'and',
                 filters: [
+                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
+                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
+                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
+                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
+                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
+                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
                     { field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    { field: 'horsepower', operator: 'lte', value: e.values[1] }
+                    { field: 'horsepower', operator: 'lte', value: e.values[1] },
+                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
+                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
+                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
+                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
+                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
+                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
                 ]
             })
         }
@@ -263,8 +311,20 @@ $(document).ready(function () {
             grid.dataSource.filter({
                 logic: 'and',
                 filters: [
+                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
+                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
+                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
+                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
+                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
+                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
+                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
+                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
                     { field: 'displacement', operator: 'gte', value: e.values[0] },
-                    { field: 'displacement', operator: 'lte', value: e.values[1] }
+                    { field: 'displacement', operator: 'lte', value: e.values[1] },
+                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
+                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
+                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
+                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
                 ]
             })
         }
@@ -281,8 +341,20 @@ $(document).ready(function () {
             grid.dataSource.filter({
                 logic: 'and',
                 filters: [
+                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
+                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
+                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
+                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
+                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
+                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
+                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
+                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
+                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
+                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
                     { field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    { field: 'cylinders', operator: 'lte', value: e.values[1] }
+                    { field: 'cylinders', operator: 'lte', value: e.values[1] },
+                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
+                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
                 ]
             })
         }
@@ -299,8 +371,20 @@ $(document).ready(function () {
             grid.dataSource.filter({
                 logic: 'and',
                 filters: [
+                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
+                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
+                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
+                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
+                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
+                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },`2
+                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
+                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
+                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
+                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
+                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
+                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
                     { field: 'mpg', operator: 'gte', value: e.values[0] },
-                    { field: 'mpg', operator: 'lte', value: e.values[1] }
+                    { field: 'mpg', operator: 'lte', value: e.values[1] },
                 ]
             })
         }

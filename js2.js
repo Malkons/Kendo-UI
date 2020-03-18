@@ -74,7 +74,7 @@ function populateArray(key) {
   console.log("High: " + Math.max.apply(Math, legendArray));
  
   var img = $("<img>");
-  img.attr("src", "images/GradiantKendo.png");
+  img.attr("src", "images/gradiant1.png");
   img.addClass("gradiant");
   img.appendTo("#legend");
   createColorArray(legendArray.length);
