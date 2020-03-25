@@ -1,6 +1,7 @@
 .container {
 display: flex;
 justify-content: right;
+
 }
 
 .container1 {
@@ -11,6 +12,7 @@ justify-content: right;
 
 img {
   width: 30%;
+  transform: rotate(180deg);
 }
 
 .legend{
