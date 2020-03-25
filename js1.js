@@ -18,7 +18,8 @@ var myDataSource = new kendo.data.DataSource({
                 modelyear: { type: "number" },
             }
         }
-    }
+    },
+    
 });
 
 function drawchartChecker() {
