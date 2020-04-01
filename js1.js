@@ -19,7 +19,7 @@ var myDataSource = new kendo.data.DataSource({
             }
         }
     },
-    
+
 });
 
 function drawchartChecker() {
@@ -181,7 +181,7 @@ $("#buttonGroupControlLegend").kendoButtonGroup();
 
 ////////////////////////////////////////////Range Sliders////////////////////////////////////////////
 $(document).ready(function () {
-    $("#rangeSliderModelYear").kendoRangeSlider({
+    var modelYearSlider = $("#rangeSliderModelYear").kendoRangeSlider({
         min: 70,
         max: 81,
         orientation: "horizontal",
@@ -189,29 +189,34 @@ $(document).ready(function () {
         largeStep: 10,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
-            grid.dataSource.filter({
-                logic: 'and',
-                filters: [
-                    { field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    { field: 'modelyear', operator: 'lte', value: e.values[1] },
-                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
-                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
-                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
-                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
-                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
-                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
-                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
-                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
-                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
-                ]
-            })
-        }
-    });
+            var filters = [],
+                filter;
 
-    $("#rangeSliderAcceleration").kendoRangeSlider({
+            filters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+            filters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+            filters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+            filters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+            filters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+            filters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+            filters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+            filters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+            filters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+            filters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+            filters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+            filters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+            filters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+            filters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+
+            filter = {
+                logic: "and",
+                filters: filters
+            };
+
+            grid.dataSource.filter(filter);
+        }
+    }).data("kendoRangeSlider");
+
+    var accelerationSlider = $("#rangeSliderAcceleration").kendoRangeSlider({
         min: 8,
         max: 24.8,
         orientation: "horizontal",
@@ -219,29 +224,34 @@ $(document).ready(function () {
         largeStep: 10,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
-            grid.dataSource.filter({
-                logic: 'and',
-                filters: [
-                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
-                    { field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    { field: 'acceleration', operator: 'lte', value: e.values[1] },
-                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
-                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
-                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
-                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
-                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
-                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
-                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
-                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
-                ]
-            })
-        }
-    });
+            var filters = [],
+                filter;
 
-    $("#rangeSliderWeight").kendoRangeSlider({
+            filters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+            filters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+            filters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+            filters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+            filters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+            filters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+            filters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+            filters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+            filters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+            filters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+            filters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+            filters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+            filters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+            filters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+
+            filter = {
+                logic: "and",
+                filters: filters
+            };
+
+            grid.dataSource.filter(filter);
+        }
+    }).data("kendoRangeSlider");
+
+    var weightSlider = $("#rangeSliderWeight").kendoRangeSlider({
         min: 1800,
         max: 4360,
         orientation: "horizontal",
@@ -249,29 +259,34 @@ $(document).ready(function () {
         largeStep: 500,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
-            grid.dataSource.filter({
-                logic: 'and',
-                filters: [
-                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
-                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
-                    { field: 'Weight', operator: 'gte', value: e.values[0] },
-                    { field: 'Weight', operator: 'lte', value: e.values[1] },
-                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
-                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
-                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
-                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
-                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
-                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
-                ]
-            })
-        }
-    });
+            var filters = [],
+                filter;
 
-    $("#rangeSliderHorsepower").kendoRangeSlider({
+            filters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+            filters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+            filters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+            filters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+            filters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+            filters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+            filters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+            filters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+            filters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+            filters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+            filters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+            filters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+            filters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+            filters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+
+            filter = {
+                logic: "and",
+                filters: filters
+            };
+
+            grid.dataSource.filter(filter);
+        }
+    }).data("kendoRangeSlider");
+
+    var horsepowerSlider = $("#rangeSliderHorsepower").kendoRangeSlider({
         min: 46,
         max: 230,
         orientation: "horizontal",
@@ -279,29 +294,34 @@ $(document).ready(function () {
         largeStep: 50,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
-            grid.dataSource.filter({
-                logic: 'and',
-                filters: [
-                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
-                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
-                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
-                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
-                    { field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    { field: 'horsepower', operator: 'lte', value: e.values[1] },
-                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
-                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
-                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
-                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
-                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
-                ]
-            })
-        }
-    });
+            var filters = [],
+                filter;
 
-    $("#rangeSliderDisplacement").kendoRangeSlider({
+            filters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+            filters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+            filters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+            filters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+            filters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+            filters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+            filters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+            filters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+            filters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+            filters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+            filters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+            filters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+            filters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+            filters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+
+            filter = {
+                logic: "and",
+                filters: filters
+            };
+
+            grid.dataSource.filter(filter);
+        }
+    }).data("kendoRangeSlider");
+
+    var displacementSlider = $("#rangeSliderDisplacement").kendoRangeSlider({
         min: 68,
         max: 455,
         orientation: "horizontal",
@@ -309,29 +329,34 @@ $(document).ready(function () {
         largeStep: 100,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
-            grid.dataSource.filter({
-                logic: 'and',
-                filters: [
-                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
-                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
-                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
-                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
-                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
-                    { field: 'displacement', operator: 'gte', value: e.values[0] },
-                    { field: 'displacement', operator: 'lte', value: e.values[1] },
-                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
-                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
-                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
-                ]
-            })
-        }
-    });
+            var filters = [],
+                filter;
 
-    $("#rangeSliderCylinders").kendoRangeSlider({
+            filters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+            filters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+            filters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+            filters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+            filters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+            filters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+            filters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+            filters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+            filters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+            filters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+            filters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+            filters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+            filters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+            filters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+
+            filter = {
+                logic: "and",
+                filters: filters
+            };
+
+            grid.dataSource.filter(filter);
+        }
+    }).data("kendoRangeSlider");
+
+    var cylindersSlider = $("#rangeSliderCylinders").kendoRangeSlider({
         min: 3,
         max: 8,
         orientation: "horizontal",
@@ -339,29 +364,34 @@ $(document).ready(function () {
         largeStep: 10,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
-            grid.dataSource.filter({
-                logic: 'and',
-                filters: [
-                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
-                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
-                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
-                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },
-                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
-                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
-                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
-                    { field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    { field: 'cylinders', operator: 'lte', value: e.values[1] },
-                    //{ field: 'mpg', operator: 'gte', value: e.values[0] },
-                    //{ field: 'mpg', operator: 'lte', value: e.values[1] },
-                ]
-            })
-        }
-    });
+            var filters = [],
+                filter;
 
-    $("#rangeSliderMpg").kendoRangeSlider({
+            filters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+            filters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+            filters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+            filters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+            filters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+            filters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+            filters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+            filters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+            filters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+            filters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+            filters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+            filters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+            filters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+            filters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+
+            filter = {
+                logic: "and",
+                filters: filters
+            };
+
+            grid.dataSource.filter(filter);
+        }
+    }).data("kendoRangeSlider");
+
+    var mpgSlider = $("#rangeSliderMpg").kendoRangeSlider({
         min: 9,
         max: 46.6,
         orientation: "horizontal",
@@ -369,27 +399,32 @@ $(document).ready(function () {
         largeStep: 10,
         change: function (e) {
             var grid = $('#grid').data('kendoGrid');
-            grid.dataSource.filter({
-                logic: 'and',
-                filters: [
-                    //{ field: 'modelyear', operator: 'gte', value: e.values[0] },
-                    //{ field: 'modelyear', operator: 'lte', value: e.values[1] },
-                    //{ field: 'acceleration', operator: 'gte', value: e.values[0] },
-                    //{ field: 'acceleration', operator: 'lte', value: e.values[1] },
-                    //{ field: 'Weight', operator: 'gte', value: e.values[0] },
-                    //{ field: 'Weight', operator: 'lte', value: e.values[1] },`2
-                    //{ field: 'horsepower', operator: 'gte', value: e.values[0] },
-                    //{ field: 'horsepower', operator: 'lte', value: e.values[1] },
-                    //{ field: 'displacement', operator: 'gte', value: e.values[0] },
-                    //{ field: 'displacement', operator: 'lte', value: e.values[1] },
-                    //{ field: 'cylinders', operator: 'gte', value: e.values[0] },
-                    //{ field: 'cylinders', operator: 'lte', value: e.values[1] },
-                    { field: 'mpg', operator: 'gte', value: e.values[0] },
-                    { field: 'mpg', operator: 'lte', value: e.values[1] },
-                ]
-            })
+            var filters = [],
+                filter;
+
+            filters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+            filters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+            filters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+            filters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+            filters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+            filters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+            filters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+            filters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+            filters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+            filters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+            filters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+            filters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+            filters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+            filters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+
+            filter = {
+                logic: "and",
+                filters: filters
+            };
+
+            grid.dataSource.filter(filter);
         }
-    });
+    }).data("kendoRangeSlider");
 });
 
 
