@@ -85,7 +85,7 @@ function drawChart() {
         },
         tooltip: {
             visible: true,
-            template: "#= series.xField #: #= value.x #, #= series.yField #: #=value.y #"
+            template: "#= series.xField #: #= value.x #, #= series.yField #: #=value.y #, #= dataItem. #"
         },
         zoomable: true,
         pannable: true,
@@ -213,6 +213,7 @@ $(document).ready(function () {
             };
 
             grid.dataSource.filter(filter);
+            console.log(legendArray);
         }
     }).data("kendoRangeSlider");
 
