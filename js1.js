@@ -4,6 +4,17 @@ var keyArr = [];
 var legendColorArr = [];
 var legendArray = [];
 var colorScaleArr = [];
+var pickDataItemRelationshipObj = {
+    mpg: "dataItem.mpg",
+    cylinders: "dataItem.cylinders",
+    displacement: "dataItem.displacement",
+    horsepower: "dataItem.horsepower",
+    weight: "dataItem.weight",
+    acceleration: "dataItem.acceleration",
+    modelyear: "dataItem.modelyear"
+};
+var chosenDataItem = [];
+
 var myDataSource = new kendo.data.DataSource({
     data: carData,
     schema: {
@@ -21,6 +32,17 @@ var myDataSource = new kendo.data.DataSource({
     },
 
 });
+
+function toolTip() {
+    var userColorChoice = colorScaleArr[0];
+    $.each(pickDataItemRelationshipObj, function (key, datavalue) {
+        if (key === userColorChoice) {
+            chosenDataItem.push(datavalue)
+            console.log("user chose: " + chosenDataItem);
+            
+        }
+    });
+}
 
 function drawchartChecker() {
     if (horizontalArr.length === 1 || verticalArr.length === 1) {
@@ -85,7 +107,7 @@ function drawChart() {
         },
         tooltip: {
             visible: true,
-            template: "#= series.xField #: #= value.x #, #= series.yField #: #=value.y #, #= dataItem. #"
+            template: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, # var myCustomVariable = colorScaleArr[0]; # # var customDataItem = chosenDataItem[0] # #= myCustomVariable #: #=customDataItem # # console.log(customDataItem)# "
         },
         zoomable: true,
         pannable: true,
@@ -170,7 +192,7 @@ $("#dropdownlistColor").kendoDropDownList({
         $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
         $("#chart").data("kendoChart").dataSource.group({ field: text });
         populateArray(text);
-        //colorScale(text);
+        toolTip();
         drawChart();
 
     }
