@@ -4,17 +4,18 @@ var keyArr = [];
 var legendColorArr = [];
 var legendArray = [];
 var colorScaleArr = [];
-var pickDataItemRelationshipObj = {
-    mpg: "dataItem.mpg",
-    cylinders: "dataItem.cylinders",
-    displacement: "dataItem.displacement",
-    horsepower: "dataItem.horsepower",
-    weight: "dataItem.weight",
-    acceleration: "dataItem.acceleration",
-    modelyear: "dataItem.modelyear"
-};
-var chosenDataItem = [];
 
+var pickDataItemRelationshipObj = {
+    mpg: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, mpg: #= dataItem.mpg # ",
+    cylinders: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, cylinders: #= dataItem.cylinders # ",
+    displacement: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, displacement: #= dataItem.displacement #",
+    horsepower: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, horsepower: #= dataItem.horsepower # ",
+    weight: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, weight: #= dataItem.weight # ",
+    acceleration: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, acceleration: #= dataItem.acceleration # ",
+    modelyear: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, model-year: #= dataItem.modelyear # "
+};
+
+var chosenDataItem = [];
 var myDataSource = new kendo.data.DataSource({
     data: carData,
     schema: {
@@ -34,11 +35,12 @@ var myDataSource = new kendo.data.DataSource({
 });
 
 function toolTip() {
+    chosenDataItem = [];
     var userColorChoice = colorScaleArr[0];
     $.each(pickDataItemRelationshipObj, function (key, datavalue) {
         if (key === userColorChoice) {
             chosenDataItem.push(datavalue)
-            console.log("user chose: " + chosenDataItem);
+            console.log("template to be used: " + chosenDataItem);
             
         }
     });
@@ -48,7 +50,7 @@ function drawchartChecker() {
     if (horizontalArr.length === 1 || verticalArr.length === 1) {
         drawChart();
     } else {
-        alert("Choose another variable");
+        alert("Choose a second variable");
     }
 };
 
@@ -107,7 +109,7 @@ function drawChart() {
         },
         tooltip: {
             visible: true,
-            template: "#= series.xField #: #= value.x #, #= series.yField #: #= value.y #, # var myCustomVariable = colorScaleArr[0]; # # var customDataItem = chosenDataItem[0] # #= myCustomVariable #: #=customDataItem # # console.log(customDataItem)# "
+            template: chosenDataItem[0]
         },
         zoomable: true,
         pannable: true,
