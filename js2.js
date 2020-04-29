@@ -24,6 +24,7 @@ function convertToRGB(hex) {
   return color;
 }
 
+//generates a list of gradiant color
 function generateColor(colorStart, colorEnd, colorCount) {
 
   // The beginning of your gradient
@@ -56,6 +57,7 @@ function generateColor(colorStart, colorEnd, colorCount) {
 
 }
 
+//function to figure out how many unique values there are in a given category in the carData.js
 function populateArray(key) {
   $("#legend").empty();
   legendArray = [];
@@ -67,26 +69,33 @@ function populateArray(key) {
   };
   legendArray.sort(); 
   
+  //shows the number of unique numbers in the array, the lowest value and the highest value
   console.log("Num of elements in array: " + legendArray.length + ", " + " Elements in array: " + legendArray);
   $("#low").html("Low: " + Math.min.apply(Math, legendArray));
   console.log("Low: " + Math.min.apply(Math, legendArray));
   $("#high").html("High: " + Math.max.apply(Math, legendArray));
   console.log("High: " + Math.max.apply(Math, legendArray));
  
+  //created the gradiant legend and puts in on the webpage
   var img = $("<img>");
   img.attr("src", "images/gradiant1.png");
   img.addClass("gradiant");
   img.appendTo("#legend");
+
+  //fires the createColorArray and passes the the number of unique elements
   createColorArray(legendArray.length);
 };
 
+//creates a number of hexadecimal colors, based on the number of elements in the legendArray and pushes them into the legendColorArr
 function createColorArray(length) {
   var tmp = generateColor('#654321', '#fff700', length);
 
+  //adds the '#' to the hexcode
   for (cor in tmp) {
     legendColorArr.push("#" + tmp[cor]);
   }
 
+  //once all colors are in the array, draws the chart with the appropriate colors
   console.log(legendColorArr);
   drawChart();
 };

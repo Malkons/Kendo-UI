@@ -7,16 +7,16 @@
 
     <link href="https://kendo.cdn.telerik.com/2019.3.917/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="https://kendo.cdn.telerik.com/2019.3.917/styles/kendo.default.min.css" rel="stylesheet" />
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2019.3.917/js/kendo.all.min.js"></script>
 </head>
 
 <body>
-
+    <!--chart div-->
     <div id="chart"></div>
+
+    <!--gradiant legend div-->
     <div class="container">
         <div class="legend" id="legend"></div>
         <div class="container1">
@@ -26,11 +26,14 @@
     </div>
 
     <br>
+    <!--displays what the user has picked as variables for the chart-->
     <div id="vertical" class="card-text margin"></div>
     <div id="horizontal" class="card-text margin"></div>
     <div id="colorScale" class="card-text margin"></div>
     <br>
     </div>
+
+    <!--range slider divs-->
     <div>
         <h4>Model Year</h4>
         <div id="rangeSliderModelYear">
@@ -70,12 +73,16 @@
     </div>
 
     <br><br>
+
+    <!--buttons div-->
     <div id="buttonGroupControlLegend">
         <button id="clearGridFilter">Show all cars</button>
         <button id="showLegend">Show Legend</button>
         <button id="hideLegend" class="button btn btn-info">Hide Legend</button>
         <button id="ungroup">Ungroup</button>
     </div>
+
+    <!--drop down list div-->
     <h3>Vertical Axis</h3>
     <input id="dropdownlistVertical" />
     <h3>Horizontal Axis</h3>

@@ -1,3 +1,4 @@
+//car data in JSON format, kendo can only read JSON it can not read csv
 var carData = [
     {
         "mpg": 18,
