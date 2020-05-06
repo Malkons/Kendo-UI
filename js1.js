@@ -501,13 +501,13 @@ $("#grid").kendoGrid({
             grid.dataSource.group([]);
         } else
             colorScaleArr = [];
-            colorScaleArr.push(e.groups[0].field);
-            console.log("Color Scale: " + colorScaleArr);
-            $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
-            toolTip();
-            populateArray(e.groups[0].field);
-            console.log(legendColorArr);
-        },
+        colorScaleArr.push(e.groups[0].field);
+        console.log("Color Scale: " + colorScaleArr);
+        $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
+        toolTip();
+        populateArray(e.groups[0].field);
+        console.log(legendColorArr);
+    },
     height: 400,
     scrollable: true,
     columns: [
@@ -559,11 +559,14 @@ $("#grid").kendoGrid({
             attributes: {
                 "class": "table-cell",
             },
+        },
+        {
             title: "make",
             field: "make",
             attributes: {
                 "class": "table-cell",
             },
+
         }],
     detailTemplate: "<div>MPG: #: mpg #</div><div>Cylinders: #: cylinders #</div><div>Displacement: #: displacement #</div><div>Horsepower: #: horsepower #</div><div>Weight: #: weight #</div><div>Acceleration: #: acceleration #</div><div>Model-year: #: modelyear #</div>",
     selectable: "multiple, row",
