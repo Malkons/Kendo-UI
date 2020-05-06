@@ -30,6 +30,7 @@ var myDataSource = new kendo.data.DataSource({
                 weight: { type: "number" },
                 acceleration: { type: "number" },
                 modelyear: { type: "number" },
+                make: { type: "string" }
             }
         }
     },
@@ -44,7 +45,7 @@ function toolTip() {
         if (key === userColorChoice) {
             chosenDataItem.push(datavalue)
             console.log("template to be used: " + chosenDataItem);
-            
+
         }
     });
 }
@@ -231,7 +232,7 @@ $(document).ready(function () {
         smallStep: 1,
         largeStep: 10,
         //when the range slider has been moved (changed) this function will pass the filters object to the datasource of the grid
-        change: function (e) { 
+        change: function (e) {
             var grid = $('#grid').data('kendoGrid');
             var filters = [],
                 filter;
@@ -495,14 +496,18 @@ $("#grid").kendoGrid({
     },
     groupable: true,
     group: function (e) {
-        colorScaleArr = [];
-        colorScaleArr.push(e.groups[0].field);
-        console.log("Color Scale: " + colorScaleArr);
-        $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
-        toolTip();
-        populateArray(e.groups[0].field);
-        console.log(legendColorArr);
-    },
+        if (e.groups.length === 0) {
+            var grid = $('#grid').data('kendoGrid');
+            grid.dataSource.group([]);
+        } else
+            colorScaleArr = [];
+            colorScaleArr.push(e.groups[0].field);
+            console.log("Color Scale: " + colorScaleArr);
+            $("#colorScale").html("Color Scale set to: " + "<strong>" + colorScaleArr + "</strong>");
+            toolTip();
+            populateArray(e.groups[0].field);
+            console.log(legendColorArr);
+        },
     height: 400,
     scrollable: true,
     columns: [
@@ -551,6 +556,11 @@ $("#grid").kendoGrid({
         {
             title: "model-year",
             field: "modelyear",
+            attributes: {
+                "class": "table-cell",
+            },
+            title: "make",
+            field: "make",
             attributes: {
                 "class": "table-cell",
             },
