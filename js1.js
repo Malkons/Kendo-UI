@@ -563,6 +563,9 @@ $("#grid").kendoGrid({
         {
             title: "make",
             field: "make",
+            filterable: {
+                multi: true,
+            },
             attributes: {
                 "class": "table-cell",
             },
