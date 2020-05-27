@@ -4,6 +4,8 @@ var verticalArr = []; //populated by the dropdown list
 var legendColorArr = []; //used by the populateArray function and createColorArray function in js2.js
 var legendArray = []; //used by the populateArray function in js2.js
 var colorScaleArr = []; //populated by the dropdown list
+var favorite = [];
+var globalFilters = [];
 
 // template object, injects the template to be used in the charts tooptip
 var pickDataItemRelationshipObj = {
@@ -134,6 +136,10 @@ function filterGrid(point) {
     });
 };
 
+
+
+
+
 ///////////////////////////////////////////Buttons//////////////////////////////////////////
 
 // this is to the "show all cars" button, removes all filters
@@ -225,6 +231,50 @@ $("#buttonGroupControlLegend").kendoButtonGroup();
 
 //range slider for model-year
 $(document).ready(function () {
+    $("button").click(function () {
+        globalFilters = [];
+        favorite = [];
+        $.each($("input[name='make']:checked"), function () {
+            favorite.push($(this).val());
+        });
+        filterMake();
+        console.log("to be filtered: " + favorite);
+    });
+
+    function filterMake() {
+        var grid = $('#grid').data('kendoGrid');
+        var filter;
+    
+        for (var i = 0; i < favorite.length; i++) {
+            console.log(favorite[i]);
+            globalFilters.push({ field: 'make', operator: 'eq', value: favorite[i] });
+        }
+    
+        globalFilters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+        globalFilters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+        globalFilters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+        globalFilters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+        globalFilters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+        globalFilters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+        globalFilters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+        globalFilters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+        globalFilters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+        globalFilters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+        globalFilters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+        globalFilters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+        globalFilters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+        globalFilters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+    
+        filter = {
+            logic: "and",
+            filters: globalFilters
+        };
+    
+        grid.dataSource.filter(filter);
+        console.log(globalFilters);
+        console.log(filter.logic);
+    }
+
     var modelYearSlider = $("#rangeSliderModelYear").kendoRangeSlider({
         min: 70,
         max: 81,
@@ -233,6 +283,7 @@ $(document).ready(function () {
         largeStep: 10,
         //when the range slider has been moved (changed) this function will pass the filters object to the datasource of the grid
         change: function (e) {
+            favorite = [];
             var grid = $('#grid').data('kendoGrid');
             var filters = [],
                 filter;
@@ -258,7 +309,7 @@ $(document).ready(function () {
             };
             //passing the info in
             grid.dataSource.filter(filter);
-            console.log(legendArray);
+            console.log(filters);
         }
     }).data("kendoRangeSlider");
 
