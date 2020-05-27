@@ -247,26 +247,26 @@ $(document).ready(function () {
     
         for (var i = 0; i < favorite.length; i++) {
             console.log(favorite[i]);
-            globalFilters.push({ field: 'make', operator: 'eq', value: favorite[i] });
+            globalFilters.push({ field: 'make', operator: 'contains', value: favorite[i] });
         }
     
-        globalFilters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
-        globalFilters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
-        globalFilters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
-        globalFilters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
-        globalFilters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
-        globalFilters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
-        globalFilters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
-        globalFilters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
-        globalFilters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
-        globalFilters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
-        globalFilters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
-        globalFilters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
-        globalFilters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
-        globalFilters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
+        //globalFilters.push({ field: 'modelyear', operator: 'gte', value: modelYearSlider.values()[0] });
+        //globalFilters.push({ field: 'modelyear', operator: 'lte', value: modelYearSlider.values()[1] });
+        //globalFilters.push({ field: 'acceleration', operator: 'gte', value: accelerationSlider.values()[0] });
+        //globalFilters.push({ field: 'acceleration', operator: 'lte', value: accelerationSlider.values()[1] });
+        //globalFilters.push({ field: 'weight', operator: 'gte', value: weightSlider.values()[0] });
+        //globalFilters.push({ field: 'weight', operator: 'lte', value: weightSlider.values()[1] });
+        //globalFilters.push({ field: 'horsepower', operator: 'gte', value: horsepowerSlider.values()[0] });
+        //globalFilters.push({ field: 'horsepower', operator: 'lte', value: horsepowerSlider.values()[1] });
+        //globalFilters.push({ field: 'displacement', operator: 'gte', value: displacementSlider.values()[0] });
+        //globalFilters.push({ field: 'displacement', operator: 'lte', value: displacementSlider.values()[1] });
+        //globalFilters.push({ field: 'cylinders', operator: 'gte', value: cylindersSlider.values()[0] });
+        //globalFilters.push({ field: 'cylinders', operator: 'lte', value: cylindersSlider.values()[1] });
+        //globalFilters.push({ field: 'mpg', operator: 'gte', value: mpgSlider.values()[0] });
+        //globalFilters.push({ field: 'mpg', operator: 'lte', value: mpgSlider.values()[1] });
     
         filter = {
-            logic: "and",
+            logic: "or",
             filters: globalFilters
         };
     

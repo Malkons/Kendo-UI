@@ -156,7 +156,8 @@ var carData = [
         "horsepower": 95,
         "weight": 2833,
         "acceleration": 15.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 18,
