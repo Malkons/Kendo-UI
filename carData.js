@@ -147,7 +147,8 @@ var carData = [
         "horsepower": 95,
         "weight": 2372,
         "acceleration": 15,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 22,
@@ -166,7 +167,8 @@ var carData = [
         "horsepower": 97,
         "weight": 2774,
         "acceleration": 15.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 21,
@@ -175,7 +177,8 @@ var carData = [
         "horsepower": 85,
         "weight": 2587,
         "acceleration": 16,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 27,
@@ -184,7 +187,8 @@ var carData = [
         "horsepower": 88,
         "weight": 2130,
         "acceleration": 14.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 26,
@@ -193,7 +197,8 @@ var carData = [
         "horsepower": 46,
         "weight": 1835,
         "acceleration": 20.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 25,
@@ -202,7 +207,8 @@ var carData = [
         "horsepower": 87,
         "weight": 2672,
         "acceleration": 17.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 24,
@@ -211,7 +217,8 @@ var carData = [
         "horsepower": 90,
         "weight": 2430,
         "acceleration": 14.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 25,
@@ -220,7 +227,8 @@ var carData = [
         "horsepower": 95,
         "weight": 2375,
         "acceleration": 17.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Chevy"
     },
     {
         "mpg": 26,
@@ -229,7 +237,8 @@ var carData = [
         "horsepower": 113,
         "weight": 2234,
         "acceleration": 12.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Ford"
     },
     {
         "mpg": 21,
@@ -238,7 +247,8 @@ var carData = [
         "horsepower": 90,
         "weight": 2648,
         "acceleration": 15,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Ford"
     },
     {
         "mpg": 10,
@@ -247,7 +257,8 @@ var carData = [
         "horsepower": 215,
         "weight": 4615,
         "acceleration": 14,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Ford"
     },
     {
         "mpg": 10,
@@ -256,7 +267,8 @@ var carData = [
         "horsepower": 200,
         "weight": 4376,
         "acceleration": 15,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Ford"
     },
     {
         "mpg": 11,
@@ -265,7 +277,8 @@ var carData = [
         "horsepower": 210,
         "weight": 4382,
         "acceleration": 13.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Ford"
     },
     {
         "mpg": 9,
@@ -274,7 +287,8 @@ var carData = [
         "horsepower": 193,
         "weight": 4732,
         "acceleration": 18.5,
-        "modelyear": 70
+        "modelyear": 70,
+        "make": "Ford"
     },
     {
         "mpg": 27,
@@ -283,7 +297,8 @@ var carData = [
         "horsepower": 88,
         "weight": 2130,
         "acceleration": 14.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 28,
@@ -292,7 +307,8 @@ var carData = [
         "horsepower": 90,
         "weight": 2264,
         "acceleration": 15.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 25,
@@ -301,7 +317,8 @@ var carData = [
         "horsepower": 95,
         "weight": 2228,
         "acceleration": 14,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 25,
@@ -310,7 +327,8 @@ var carData = [
         "horsepower": 88,
         "weight": 2046,
         "acceleration": 19,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 19,
@@ -319,7 +337,8 @@ var carData = [
         "horsepower": 100,
         "weight": 2634,
         "acceleration": 13,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 16,
@@ -328,7 +347,8 @@ var carData = [
         "horsepower": 105,
         "weight": 3439,
         "acceleration": 15.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 17,
@@ -337,7 +357,8 @@ var carData = [
         "horsepower": 100,
         "weight": 3329,
         "acceleration": 15.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 19,
@@ -346,7 +367,8 @@ var carData = [
         "horsepower": 88,
         "weight": 3302,
         "acceleration": 15.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 18,
@@ -355,7 +377,8 @@ var carData = [
         "horsepower": 100,
         "weight": 3288,
         "acceleration": 15.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 14,
@@ -364,7 +387,8 @@ var carData = [
         "horsepower": 165,
         "weight": 4209,
         "acceleration": 12,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Toyota"
     },
     {
         "mpg": 14,
@@ -373,7 +397,8 @@ var carData = [
         "horsepower": 175,
         "weight": 4464,
         "acceleration": 11.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 14,
@@ -382,7 +407,8 @@ var carData = [
         "horsepower": 153,
         "weight": 4154,
         "acceleration": 13.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 14,
@@ -391,7 +417,8 @@ var carData = [
         "horsepower": 150,
         "weight": 4096,
         "acceleration": 13,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 12,
@@ -400,7 +427,8 @@ var carData = [
         "horsepower": 180,
         "weight": 4955,
         "acceleration": 11.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 13,
@@ -409,7 +437,8 @@ var carData = [
         "horsepower": 170,
         "weight": 4746,
         "acceleration": 12,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 13,
@@ -418,7 +447,8 @@ var carData = [
         "horsepower": 175,
         "weight": 5140,
         "acceleration": 12,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 18,
@@ -427,7 +457,8 @@ var carData = [
         "horsepower": 110,
         "weight": 2962,
         "acceleration": 13.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 22,
@@ -436,7 +467,8 @@ var carData = [
         "horsepower": 72,
         "weight": 2408,
         "acceleration": 19,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Ford"
     },
     {
         "mpg": 19,
@@ -445,7 +477,8 @@ var carData = [
         "horsepower": 100,
         "weight": 3282,
         "acceleration": 15,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 18,
@@ -454,7 +487,8 @@ var carData = [
         "horsepower": 88,
         "weight": 3139,
         "acceleration": 14.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 23,
@@ -463,7 +497,8 @@ var carData = [
         "horsepower": 86,
         "weight": 2220,
         "acceleration": 14,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 28,
@@ -472,7 +507,8 @@ var carData = [
         "horsepower": 90,
         "weight": 2123,
         "acceleration": 14,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 30,
@@ -481,7 +517,8 @@ var carData = [
         "horsepower": 70,
         "weight": 2074,
         "acceleration": 19.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 30,
@@ -490,7 +527,8 @@ var carData = [
         "horsepower": 76,
         "weight": 2065,
         "acceleration": 14.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 31,
@@ -499,7 +537,8 @@ var carData = [
         "horsepower": 65,
         "weight": 1773,
         "acceleration": 19,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 35,
@@ -508,7 +547,8 @@ var carData = [
         "horsepower": 69,
         "weight": 1613,
         "acceleration": 18,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 27,
@@ -517,7 +557,8 @@ var carData = [
         "horsepower": 60,
         "weight": 1834,
         "acceleration": 19,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 26,
@@ -526,7 +567,8 @@ var carData = [
         "horsepower": 70,
         "weight": 1955,
         "acceleration": 20.5,
-        "modelyear": 71
+        "modelyear": 71,
+        "make": "Chevy"
     },
     {
         "mpg": 24,
